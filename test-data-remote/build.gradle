@@ -1,0 +1,37 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+apply from: "$rootProject.projectDir/gradlescripts/build.gradle"
+
+android {
+    namespace 'com.xcaret.test.data.remote'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 33
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+}
+
+dependencies {
+    implementation(project(path: ":test-data-repository"))
+    implementation(project(path: ":test-domain"))
+
+    implementation coroutines.coroutinesAndroid
+    implementation network.okHttp
+    implementation network.retrofit
+    implementation network.gson
+    implementation network.converterGson
+    implementation network.loggingInterceptor
+    implementation di.hiltAndroid
+    kapt di.hiltCompiler
+    testImplementation test.junit
+    testImplementation test.coroutines
+    testImplementation test.mockito
+}

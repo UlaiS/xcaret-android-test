@@ -1,0 +1,68 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+apply from: "$rootProject.projectDir/gradlescripts/build.gradle"
+
+android {
+    namespace 'com.xcaret.test'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.xcaret.test"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.4.0'
+    }
+}
+
+dependencies {
+    implementation(project(path: ":test-domain"))
+    implementation(project(path: ":test-data-remote"))
+    implementation(project(path: ":test-data-local"))
+    implementation(project(path: ":test-domain"))
+    implementation(project(path: ":test-data-repository"))
+
+    implementation androidx.core
+    implementation androidx.appCompat
+    implementation androidx.composeUi
+    implementation androidx.composeMaterial3
+    implementation androidx.composeUiToolingPreview
+    implementation androidx.lifecycleRuntimeKtx
+    implementation androidx.composeActivity
+    implementation androidx.navigationCompose
+    implementation androidx.hiltNavigationCompose
+
+    implementation di.hiltAndroid
+    kapt di.hiltCompiler
+
+    testImplementation test.junit
+    androidTestImplementation androidTest.junit
+    androidTestImplementation androidTest.espressoCore
+    androidTestImplementation androidTest.idlingResource
+    androidTestImplementation androidTest.core
+    androidTestImplementation androidTest.rules
+    androidTestImplementation androidTest.runner
+    androidTestImplementation androidTest.hilt
+    kaptAndroidTest androidTest.hiltCompiler
+    androidTestImplementation androidTest.composeUiTestJunit
+    debugImplementation androidTest.composeManifest
+    androidTestUtil androidTest.orchestrator
+}

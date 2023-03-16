@@ -1,0 +1,119 @@
+buildscript {
+    ext {
+        versions = [
+                hilt                 : "2.44",
+                coreKtx              : "1.9.0",
+                appCompat            : "1.6.0",
+                compose              : "1.3.3",
+                compose_viewpager    : '0.20.3',
+                lifecycleRuntimeKtx  : "2.5.1",
+                activityCompose      : "1.6.1",
+                composeMaterial3    : "1.1.0-alpha05",
+                coroutines           : "1.6.4",
+                okHttp               : "4.9.0",
+                retrofit             : "2.9.0",
+                gson                 : "2.10.1",
+                converterGson        : "2.9.0",
+                loggingInterceptor   : "5.0.0-alpha.2",
+                room                 : "2.4.0",
+                datastore            : "1.0.0",
+                viewModel            : "2.4.0",
+                navigationCompose    : "2.6.0-alpha04",
+                hiltNavigationCompose: "1.1.0-alpha01",
+                junit                : "4.13.2",
+                mockito              : "4.0.0",
+                espressoJunit        : "1.1.3",
+                espressoCore         : "3.4.0",
+                androidTestCore      : "1.4.0",
+                androidTestJunit     : "1.1.3",
+                orchestrator         : "1.4.1",
+                barcodeScanning      : "17.0.3",
+                cameraMlkitVision    : "1.3.0-alpha03",
+                accompanist          : "0.29.1-alpha",
+                customview           : "1.2.0-alpha02",
+                customviewPoolingcontainer : "1.0.0"
+        ]
+
+        enviroment = [
+                build : "dev",
+                product : "xetuxPostGlobal",
+                directories : [
+                        "Login/modules/common",
+                        "Post/modules/common",
+                ]
+        ]
+
+        androidx = [
+                core                   : "androidx.core:core-ktx:${versions.coreKtx}",
+                appCompat              : "androidx.appcompat:appcompat:${versions.appCompat}",
+                composeUi              : "androidx.compose.ui:ui:${versions.compose}",
+                composeMaterial3       : "androidx.compose.material3:material3:${versions.composeMaterial3}",
+                composeSizeMaterial3   : "androidx.compose.material3:material3-window-size-class:1.0.1",
+                composeUiToolingPreview: "androidx.compose.ui:ui-tooling-preview:${versions.compose}",
+                composeViewpager       : "com.google.accompanist:accompanist-pager:$versions.compose_viewpager",
+                composeUiToolingData   : "androidx.compose.ui:ui-tooling-data:${versions.compose}",
+                composeUiTooling       : "androidx.compose.ui:ui-tooling:${versions.compose}",
+                customview             : "androidx.customview:customview:${versions.customview}",
+                customviewPoolingcontainer : "androidx.customview:customview-poolingcontainer:${versions.customviewPoolingcontainer}",
+                lifecycleRuntimeKtx    : "androidx.lifecycle:lifecycle-runtime-ktx:${versions.lifecycleRuntimeKtx}",
+                composeActivity        : "androidx.activity:activity-compose:${versions.activityCompose}",
+                viewModelKtx           : "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.viewModel}",
+                viewModelCompose       : "androidx.lifecycle:lifecycle-viewmodel-compose:${versions.viewModel}",
+                navigationCompose      : "androidx.navigation:navigation-compose:${versions.navigationCompose}",
+                hiltNavigationCompose  : "androidx.hilt:hilt-navigation-compose:${versions.hiltNavigationCompose}",
+                runtimeCompose         : "androidx.compose.runtime:runtime:${versions.compose}",
+
+        ]
+
+        coroutines = [
+                coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
+        ]
+
+        di = [
+                hiltAndroid : "com.google.dagger:hilt-android:${versions.hilt}",
+                hiltCompiler: "com.google.dagger:hilt-compiler:${versions.hilt}"
+        ]
+
+        network = [
+                okHttp       : "com.squareup.okhttp3:okhttp:${versions.okHttp}",
+                retrofit     : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+                gson         : "com.google.code.gson:gson:${versions.gson}",
+                converterGson: "com.squareup.retrofit2:converter-gson:${versions.converterGson}",
+                loggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${versions.loggingInterceptor}"
+        ]
+
+        persistence = [
+                roomRuntime : "androidx.room:room-runtime:${versions.room}",
+                roomKtx     : "androidx.room:room-ktx:${versions.room}",
+                roomCompiler: "androidx.room:room-compiler:${versions.room}",
+                datastore   : "androidx.datastore:datastore-preferences:${versions.datastore}"
+        ]
+
+        test = [
+                junit     : "junit:junit:${versions.junit}",
+                coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-test:${versions.coroutines}",
+                mockito   : "org.mockito.kotlin:mockito-kotlin:${versions.mockito}"
+        ]
+
+        androidTest = [
+                junit             : "androidx.test.ext:junit:${versions.espressoJunit}",
+                espressoCore      : "androidx.test.espresso:espresso-core:${versions.espressoCore}",
+                idlingResource    : "androidx.test.espresso:espresso-idling-resource:${versions.espressoCore}",
+                composeUiTestJunit: "androidx.compose.ui:ui-test-junit4:${versions.compose}",
+                composeManifest   : "androidx.compose.ui:ui-test-manifest:${versions.compose}",
+                hilt              : "com.google.dagger:hilt-android-testing:${versions.hilt}",
+                hiltCompiler      : "com.google.dagger:hilt-android-compiler:${versions.hilt}",
+                core              : "androidx.test:core:${versions.androidTestCore}",
+                runner            : "androidx.test:runner:${versions.androidTestCore}",
+                rules             : "androidx.test:rules:${versions.androidTestCore}",
+                orchestrator      : "androidx.test:orchestrator:${versions.orchestrator}"
+        ]
+    }
+}
+
+plugins {
+    id 'com.android.application' version '7.4.1' apply false
+    id 'com.android.library' version '7.4.1' apply false
+    id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
+    id 'com.google.dagger.hilt.android' version '2.44' apply false
+}
