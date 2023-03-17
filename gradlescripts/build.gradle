@@ -5,6 +5,9 @@ android {
             minifyEnabled false
             debuggable = true
             signingConfig signingConfigs.debug
+            buildConfigField "String", "BASE_URL", '"https://pokeapi.co/api/v2/"'
+            buildConfigField "String", "NAME_DB", '"x_test_db"'
+            buildConfigField "String", "NAME_PREFERENCE", '"x_preference"'
             consumerProguardFiles "consumer-rules.pro"
         }
 
@@ -12,6 +15,9 @@ android {
             minifyEnabled false
             debuggable = true
             signingConfig signingConfigs.debug
+            buildConfigField "String", "BASE_URL", '"https://pokeapi.co/api/v2/"'
+            buildConfigField "String", "NAME_DB", '"x_test_db"'
+            buildConfigField "String", "NAME_PREFERENCE", '"x_preference"'
             consumerProguardFiles "consumer-rules.pro"
         }
     }

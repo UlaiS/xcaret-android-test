@@ -1,0 +1,44 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+apply from: "$rootProject.projectDir/gradlescripts/build.gradle"
+
+android {
+    namespace 'com.zitro.games.activate.test.presentation.common'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 33
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.4.0'
+    }
+}
+
+dependencies {
+    implementation(project(path: ":test-domain"))
+    implementation coroutines.coroutinesAndroid
+    implementation androidx.composeUi
+    implementation androidx.composeMaterial3
+    implementation androidx.viewModelKtx
+    implementation androidx.viewModelCompose
+    implementation androidx.lifecycleRuntimeKtx
+    implementation androidx.navigationCompose
+    implementation di.hiltAndroid
+    kapt di.hiltCompiler
+    testImplementation test.junit
+    testImplementation test.coroutines
+    testImplementation test.mockito
+}

@@ -24,6 +24,7 @@ dependencies {
     implementation(project(path: ":test-domain"))
 
     implementation coroutines.coroutinesAndroid
+    implementation network.gson
 
     implementation persistence.roomRuntime
     implementation persistence.roomKtx

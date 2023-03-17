@@ -39,6 +39,9 @@ dependencies {
     implementation(project(path: ":test-data-local"))
     implementation(project(path: ":test-domain"))
     implementation(project(path: ":test-data-repository"))
+    implementation(project(path: ":test-presentation-login"))
+    implementation(project(path: ":test-presentation-pokemon-list"))
+    implementation(project(path: ":test-presentation-common"))
 
     implementation androidx.core
     implementation androidx.appCompat
@@ -49,6 +52,7 @@ dependencies {
     implementation androidx.composeActivity
     implementation androidx.navigationCompose
     implementation androidx.hiltNavigationCompose
+    implementation github.glide
 
     implementation di.hiltAndroid
     kapt di.hiltCompiler

@@ -3,41 +3,51 @@ package com.xcaret.test
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.xcaret.test.ui.theme.XcaretTestTheme
+import com.zitro.games.activate.test.presentation.common.XTPCNavRoutes
+import com.zitro.games.activate.test.presentation.login.LoginScreen
+import com.zitro.games.activate.test.presentation.pokemon.list.PokemonListScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             XcaretTestTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
+                Surface(color = MaterialTheme.colorScheme.surface) {
+                    val navController = rememberNavController()
+                    App(navController = navController)
                 }
             }
         }
     }
-}
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
+    @Composable
+    fun App(navController: NavHostController) {
+        NavHost(navController, startDestination = XTPCNavRoutes.Login.route) {
+            composable(route = XTPCNavRoutes.Login.route) {
+                LoginScreen(hiltViewModel(), navController)
+            }
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    XcaretTestTheme {
-        Greeting("Android")
+            composable(
+                route = XTPCNavRoutes.PokemonList.route,
+                arguments = XTPCNavRoutes.PokemonList.arguments
+            ) {
+                PokemonListScreen(
+                    hiltViewModel(),
+                    XTPCNavRoutes.PokemonList.fromEntry(it),
+                    navController
+                )
+            }
+        }
     }
 }

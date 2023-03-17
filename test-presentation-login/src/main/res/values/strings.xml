@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="img_content_logo">logo</string>
+    <string name="et_user">Usuario</string>
+    <string name="et_password">Contraseña</string>
+    <string name="msg_empty_fields">Ingrese su contraseña y su usuario</string>
+    <string name="btn_sign_in">Iniciar sesión</string>
+</resources>
