@@ -1,6 +1,6 @@
 # xcaret-android-test
 
-Proyecto con las siguientes características:<br />
+# Proyecto con las siguientes características:<br />
     -Principios Solid <br />
     -Principios de cohesión de componentes<br />
     -Principios de acoplamiento de componentes<br />
@@ -10,6 +10,6 @@ Proyecto con las siguientes características:<br />
     -Base de datos locales<br />
     -Modular y listo para pruebas unitarias con Junit y Mockito<br />
 <br /><br />
-Login:<br />
+# Login:<br />
     Usuario = El usuario es una cadena de caracteres cualquier <br />
     Password = El password es una cadena de caracteres cualquier <br />
